@@ -1,0 +1,64 @@
+<div id="orden"> <div class="container"> <div id="paquete" class="panel panel-default"> <div class="panel-heading"> <h2 class="pull-left">Paquete</h2> <h2 class="pull-right text-info">Total: $ 15.000</h2> <div class="clearfix"></div> </div> <div class="panel-body"> <ul class="list-group col-xs-12 col-sm-6"> <li class="list-group-item" ng-repeat="item in orden.paquete"> <h4> <label class="label label-success animated bounceIn">$ {{item.costo}}</label> <strong>{{item.nombre}}</strong> <span ng-if="item.cantidad > 1" class="badge pull-right">{{item.cantidad}}</span> </h4> </li> </ul> <ul class="list-group col-xs-12 col-sm-6"> <li class="list-group-item"> <h4> <strong>Duración: </strong> {{orden.config.duracion}} </h4> </li> <li class="list-group-item"> <h4> <strong>Edades: </strong> {{orden.config.edades}} </h4> </li> <li class="list-group-item"> <h4> <strong>Invitados: </strong> {{orden.config.invitados}} </h4> </li> </ul> </div> <h3 class="page-header"> Completa los siguientes datos para continuar </h3> <ul class="list-group"> <li class="list-group-item"> <div class="form-group"> <label>Dirección: </label> <input class="form-control" placeholder="Dirección"> <small class="help-block">Favor de introducir ya sea tu domicilio o el de el salón donde se llevará a cabo el evento.</small> </div> </li> <li class="list-group-item container-fluid"> <h3>Fecha y hora del evento:</h3> <div class="col-xs-12 col-sm-6"> <datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker> <div class="clearfix"></div> </div> <div class="col-xs-12 col-sm-6"> <timepicker ng-model="mytime" ng-change="changed()" hour-step="1" minute-step="5" show-meridian="ismeridian"></timepicker> <button ng-click="disponibilidad()" class="btn btn-block btn-lg btn-info">Verificar disponibilidad</button> </div> </li> <!--			<li class="list-group-item">
+						<div class="form-group col-sm-6 ">
+							<div class="row">
+								<label>Día y hora del evento:</label>
+								<br>
+								<div class="btn-group dropup">
+								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								    {{mes}} <span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu">
+								    <li ng-repeat="m in meses track by $index">
+								    	<a href="#">{{m}}</a>
+								    </li>
+								  </ul>
+								</div>
+								<div class="btn-group dropup">
+								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								    {{fecha}} <span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu">
+								    <li ng-repeat="d in dias track by $index">
+								    	<a href="#">{{d}}</a>
+								    </li>
+								  </ul>
+								</div>
+							</div>						
+						</div>
+						<div class="form-group col-sm-6 ">		
+							<div class="row">
+									<label>A las:</label>
+									<br>
+									<div class="btn-group dropup">
+									  <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									    {{hora}} <span class="caret"></span>
+									  </button>
+									  <ul class="dropdown-menu">
+									    <li ng-repeat="h in horas track by $index">
+									    	<a href="#">{{h}}</a>
+									    </li>
+									  </ul>
+									</div>
+									<div class="btn-group dropup">
+									  <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									    {{minuto}} <span class="caret"></span>
+									  </button>
+									  <ul class="dropdown-menu">
+									    <li ng-repeat="m in minutos track by $index">
+									    	<a href="#">{{m}}</a>
+									    </li>
+									  </ul>
+									</div>						
+									<div class="btn-group dropup">
+									  <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									    PM <span class="caret"></span>
+									  </button>
+									  <ul class="dropdown-menu">
+									    <li><a href="#">AM</a></li>
+									    <li><a href="#">PM</a></li>
+									  </ul>
+									</div>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</li>--> </ul> <div class="clearfix"></div> <div ng-if="verificando === true" class="col-xs-12 alert alert-info" role="alert"> <img src="http://static.tumblr.com/6u5yyqj/iUtmgivzo/loading.gif"> Verificando disponibilidad </div> <div ng-if="verificando === 'done'" class="col-xs-12 alert alert-success" role="alert"> <strong>¡Genial!</strong> <br> La fecha y hora marcada está disponible! Presiona <label class="label label-success">Enviar reserva</label> para completar tu pedido. </div> </div> <button ng-click="enviarReserva()" class="btn btn-success center-block btn-lg"> Enviar reserva </button> <br> </div> </div>
